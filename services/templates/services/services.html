@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} La Sabrosa - Services {% endblock %}
+{% block content %}
+						<!--Contenido -->
+{% for service in services %}
+	<div class="contenido-service">
+		<div class="card text-center">
+			<div class="card-header">
+				<h4>{{service.title}}</h4>
+				<h3>{{service.subtitle}}</h3>
+				</div>
+					<img src="{% static 'core/img/foond2-img.jpg' %}" class="card-img-top" alt="...">
+					<div class="card-body">
+					<p class="card-text">{{ service.content }}</p>
+					</div>
+				<div class="card-footer">
+				<h6>{{service.published | date:'SHORT_DATE_FORMAT'}}</h6>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}
